@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly Biotechnology | Admin Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+display:flex;
+background:#f4f6fb;
+min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:240px;
+background:#2c1c6b;
+color:white;
+padding:25px;
+position:fixed;
+height:100%;
+transition:0.3s;
+}
+
+.sidebar h2{
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+margin:12px 0;
+padding:10px;
+border-radius:6px;
+}
+
+.sidebar a:hover{
+background:#4a35c7;
+}
+
+.close-btn{
+display:none;
+font-size:22px;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+/* Main */
+
+.main{
+margin-left:240px;
+width:100%;
+}
+
+/* Topbar */
+
+.topbar{
+background:white;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.hamburger{
+font-size:22px;
+cursor:pointer;
+display:none;
+}
+
+.right{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.email{
+font-weight:bold;
+color:#4a00e0;
+}
+
+.exit{
+background:#ff4d4d;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* Cards */
+
+.cards{
+padding:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,.07);
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* Charts */
+
+.charts{
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+
+.chart-box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+/* Table */
+
+.table-section{
+padding:25px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:10px;
+overflow:hidden;
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+th{
+background:#f7f8fc;
+text-align:left;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.sidebar{
+left:-240px;
+}
+
+.sidebar.active{
+left:0;
+}
+
+.close-btn{
+display:block;
+}
+
+.hamburger{
+display:block;
+}
+
+.main{
+margin-left:0;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.charts{
+grid-template-columns:1fr;
+}
+
+.topbar{
+flex-wrap:wrap;
+gap:10px;
+}
+
+.right{
+width:100%;
+display:flex;
+justify-content:space-between;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar" id="sidebar">
+
+<div class="close-btn" onclick="closeSidebar()">✖</div>
+
+<h2>Stackly Bio</h2>
+
+<a href="#">Dashboard</a>
+<a href="#">Patients</a>
+<a href="#">Researchers</a>
+<a href="#">Lab Reports</a>
+<a href="#">Clinical Trials</a>
+<a href="#">Analytics</a>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<!-- Topbar -->
+
+<div class="topbar">
+
+<div class="left">
+
+<div class="hamburger" onclick="openSidebar()">☰</div>
+
+<h3>Administrator Dashboard</h3>
+
+</div>
+
+<div class="right">
+
+<span class="email" id="userEmail"></span>
+
+<button class="exit" onclick="exitDashboard()">Exit</button>
+
+</div>
+
+</div>
+
+<!-- Cards -->
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Patients</h3>
+<p>1240</p>
+</div>
+
+<div class="card">
+<h3>Total Researchers</h3>
+<p>320</p>
+</div>
+
+<div class="card">
+<h3>Lab Reports</h3>
+<p>4120</p>
+</div>
+
+<div class="card">
+<h3>Active Trials</h3>
+<p>18</p>
+</div>
+
+</div>
+
+<!-- Charts -->
+
+<div class="charts">
+
+<div class="chart-box">
+<canvas id="patientsChart"></canvas>
+</div>
+
+<div class="chart-box">
+<canvas id="researchChart"></canvas>
+</div>
+
+<div class="chart-box">
+<canvas id="trialChart"></canvas>
+</div>
+
+</div>
+
+<!-- Table -->
+
+<div class="table-section">
+
+<h3>Recent Lab Reports</h3>
+
+<table>
+
+<tr>
+<th>Patient</th>
+<th>Test</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>John Carter</td>
+<td>DNA Sequencing</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>Alice Brown</td>
+<td>Genome Mapping</td>
+<td>Processing</td>
+</tr>
+
+<tr>
+<td>Michael Lee</td>
+<td>Blood Analysis</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>Sophia Miller</td>
+<td>RNA Analysis</td>
+<td>Pending</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+/* Logged Email */
+
+document.getElementById("userEmail").innerText =
+localStorage.getItem("loggedEmail")
+
+function exitDashboard(){
+window.location.href="index.html"
+}
+
+/* Sidebar */
+
+function openSidebar(){
+document.getElementById("sidebar").classList.add("active")
+}
+
+function closeSidebar(){
+document.getElementById("sidebar").classList.remove("active")
+}
+
+/* Charts */
+
+new Chart(document.getElementById("patientsChart"),{
+type:"bar",
+data:{
+labels:["Jan","Feb","Mar","Apr","May","Jun"],
+datasets:[{label:"Patients Registered",data:[120,190,300,250,320,400]}]
+}
+})
+
+new Chart(document.getElementById("researchChart"),{
+type:"line",
+data:{
+labels:["Week1","Week2","Week3","Week4"],
+datasets:[{label:"Research Activity",data:[12,19,8,15]}]
+}
+})
+
+new Chart(document.getElementById("trialChart"),{
+type:"doughnut",
+data:{
+labels:["Active","Completed","Pending"],
+datasets:[{data:[12,8,5]}]
+}
+})
+
+</script>
+
+</body>
+</html>

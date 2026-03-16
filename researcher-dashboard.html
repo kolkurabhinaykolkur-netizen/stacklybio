@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly Biotechnology | Researcher Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+display:flex;
+background:#f4f6fb;
+min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:240px;
+background:#1f3c88;
+color:white;
+padding:25px;
+position:fixed;
+height:100%;
+transition:0.3s;
+}
+
+.sidebar h2{
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+margin:12px 0;
+padding:10px;
+border-radius:6px;
+}
+
+.sidebar a:hover{
+background:#4066d1;
+}
+
+.close-btn{
+display:none;
+font-size:22px;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+/* Main */
+
+.main{
+margin-left:240px;
+width:100%;
+}
+
+/* Topbar */
+
+.topbar{
+background:white;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.hamburger{
+font-size:22px;
+cursor:pointer;
+display:none;
+}
+
+.right{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.notification{
+font-size:20px;
+cursor:pointer;
+}
+
+.email{
+font-weight:bold;
+color:#4066d1;
+}
+
+.exit{
+background:#ff4d4d;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* Cards */
+
+.cards{
+padding:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+/* Charts */
+
+.charts{
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+
+.chart-box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+/* Tables */
+
+.section{
+padding:25px;
+}
+
+table{
+width:100%;
+background:white;
+border-collapse:collapse;
+border-radius:10px;
+overflow:hidden;
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.sidebar{
+left:-240px;
+}
+
+.sidebar.active{
+left:0;
+}
+
+.close-btn{
+display:block;
+}
+
+.hamburger{
+display:block;
+}
+
+.main{
+margin-left:0;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.charts{
+grid-template-columns:1fr;
+}
+
+.topbar{
+flex-wrap:wrap;
+gap:10px;
+}
+
+.right{
+width:100%;
+display:flex;
+justify-content:space-between;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar" id="sidebar">
+
+<div class="close-btn" onclick="closeSidebar()">✖</div>
+
+<h2>Stackly Bio</h2>
+
+<a href="#">Research Overview</a>
+<a href="#">Experiments</a>
+<a href="#">Genome Data</a>
+<a href="#">Publications</a>
+<a href="#">Reports</a>
+
+</div>
+
+<div class="main">
+
+<!-- Topbar -->
+
+<div class="topbar">
+
+<div class="left">
+
+<div class="hamburger" onclick="openSidebar()">☰</div>
+
+<h3>Researcher Dashboard</h3>
+
+</div>
+
+<div class="right">
+
+<span class="notification">🔔</span>
+
+<span class="email" id="userEmail"></span>
+
+<button class="exit" onclick="exitDashboard()">Exit</button>
+
+</div>
+
+</div>
+
+<!-- Cards -->
+
+<div class="cards">
+
+<div class="card">
+<h3>Active Experiments</h3>
+<p>48</p>
+</div>
+
+<div class="card">
+<h3>Genome Samples</h3>
+<p>1260</p>
+</div>
+
+<div class="card">
+<h3>Research Papers</h3>
+<p>23</p>
+</div>
+
+<div class="card">
+<h3>Lab Projects</h3>
+<p>9</p>
+</div>
+
+</div>
+
+<!-- Charts -->
+
+<div class="charts">
+
+<div class="chart-box">
+<canvas id="radarChart"></canvas>
+</div>
+
+<div class="chart-box">
+<canvas id="polarChart"></canvas>
+</div>
+
+<div class="chart-box">
+<canvas id="bubbleChart"></canvas>
+</div>
+
+</div>
+
+<!-- Experiments -->
+
+<div class="section">
+
+<h3>Recent Experiments</h3>
+
+<table>
+
+<tr>
+<th>Experiment</th>
+<th>Research Area</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>DNA Sequencing</td>
+<td>Genomics</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>RNA Expression</td>
+<td>Molecular Biology</td>
+<td>Running</td>
+</tr>
+
+<tr>
+<td>Protein Mapping</td>
+<td>Biochemistry</td>
+<td>Processing</td>
+</tr>
+
+<tr>
+<td>Cell Mutation Study</td>
+<td>Genetics</td>
+<td>Pending</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- Reports -->
+
+<div class="section">
+
+<h3>Research Reports</h3>
+
+<table>
+
+<tr>
+<th>Report Name</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Genome Analysis Report</td>
+<td>12 Mar 2026</td>
+<td>Published</td>
+</tr>
+
+<tr>
+<td>Protein Structure Study</td>
+<td>05 Mar 2026</td>
+<td>Reviewing</td>
+</tr>
+
+<tr>
+<td>DNA Mutation Report</td>
+<td>28 Feb 2026</td>
+<td>Draft</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+/* Email */
+
+document.getElementById("userEmail").innerText =
+localStorage.getItem("loggedEmail")
+
+function exitDashboard(){
+window.location.href="index.html"
+}
+
+/* Sidebar */
+
+function openSidebar(){
+document.getElementById("sidebar").classList.add("active")
+}
+
+function closeSidebar(){
+document.getElementById("sidebar").classList.remove("active")
+}
+
+/* Charts */
+
+new Chart(document.getElementById("radarChart"),{
+type:"radar",
+data:{
+labels:["Genomics","Proteomics","Bioinformatics","Molecular Biology","Immunology"],
+datasets:[{label:"Research Strength",data:[80,70,85,90,75]}]
+}
+})
+
+new Chart(document.getElementById("polarChart"),{
+type:"polarArea",
+data:{
+labels:["DNA","RNA","Protein","Cell"],
+datasets:[{data:[400,300,200,260]}]
+}
+})
+
+new Chart(document.getElementById("bubbleChart"),{
+type:"bubble",
+data:{
+datasets:[{
+label:"Experiment Impact",
+data:[
+{x:10,y:20,r:15},
+{x:15,y:10,r:10},
+{x:8,y:15,r:12},
+{x:20,y:25,r:18}
+]
+}]
+}
+})
+
+</script>
+
+</body>
+</html>

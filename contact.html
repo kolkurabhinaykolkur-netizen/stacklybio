@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly Biotechnology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+<div class="nav-container">
+
+<div class="logo">
+<a href="index.html">
+<img src="images/loo.webp" alt="logo">
+</a>
+</div>
+
+
+
+<nav class="nav-links" id="navLinks">
+
+<div class="mobile-top">
+
+<img src="images/loo.webp" class="mobile-logo">
+
+<span class="close-menu" id="closeMenu">✕</span>
+
+</div>
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
+<a href="services.html">Services</a>
+<a href="blogs.html">Blogs</a>
+<a href="contact.html">Contact</a>
+
+<a href="login.html" class="mobile-login">
+<button class="mobile-btn">Login</button>
+</a>
+
+</nav>
+
+
+
+
+<button class="login-btn">Login</button>
+
+<div class="hamburger" id="hamburger">☰</div>
+
+</div>
+
+</header>
+
+
+
+
+
+
+<section class="contact-section">
+
+<div class="contact-container">
+
+<!-- LEFT CONTENT -->
+
+<div class="contact-info">
+
+<h2>Get in touch with us today and let's start discussing your needs.</h2>
+
+<p class="contact-desc">
+Have questions or want to start a project? Fill out the form below
+and our team will get back to you promptly with personalized guidance.
+</p>
+
+<hr>
+
+<p><strong>Phone</strong><br> + (800) 395 340 340</p>
+<p><strong>Email</strong><br> stackly@example.com</p>
+<p><strong>Address</strong><br> Madapura, Hyderbad Telegana</p>
+
+
+
+
+<div class="scroll-image-container">
+
+<img src="images/kp.webp" id="scrollRotateImage" alt="scroll image">
+
+</div>
+
+</div>
+
+
+
+<script>
+
+    let rotation = 0;
+
+window.addEventListener("scroll", function(){
+
+rotation = window.scrollY * 0.3;
+
+document.getElementById("scrollRotateImage").style.transform =
+"rotate(" + rotation + "deg)";
+
+});
+</script>
+
+<!-- FORM -->
+
+<div class="contact-form">
+
+<form id="contactForm">
+
+<div class="form-row">
+
+<div class="input-group">
+<label>First name</label>
+<input type="text" id="firstname" placeholder="Enter first name">
+<span class="error" id="fnameError"></span>
+</div>
+
+<div class="input-group">
+<label>Last name</label>
+<input type="text" id="lastname" placeholder="Enter last name">
+<span class="error" id="lnameError"></span>
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="input-group">
+<label>Email</label>
+<input type="text" id="email" placeholder="Enter email">
+<span class="error" id="emailError"></span>
+</div>
+
+<div class="input-group">
+<label>Phone number</label>
+<input type="text" id="phone" placeholder="Enter phone number">
+<span class="error" id="phoneError"></span>
+</div>
+
+</div>
+
+
+<div class="input-group">
+<label>Message</label>
+<textarea id="message" placeholder="Your text"></textarea>
+<span class="error" id="messageError"></span>
+</div>
+
+<button type="submit" class="submit-btn">Submit</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+    const fname = document.getElementById("firstname");
+const lname = document.getElementById("lastname");
+const phone = document.getElementById("phone");
+const email = document.getElementById("email");
+const message = document.getElementById("message");
+const form = document.getElementById("contactForm");
+
+/* NAME VALIDATION (ONLY ALPHABETS) */
+
+fname.addEventListener("input", function () {
+
+    this.value = this.value.replace(/[^A-Za-z]/g, "");
+
+    if(this.value === ""){
+        document.getElementById("fnameError").innerText="Only alphabets allowed";
+    }else{
+        document.getElementById("fnameError").innerText="";
+    }
+
+});
+
+
+lname.addEventListener("input", function () {
+
+    this.value = this.value.replace(/[^A-Za-z]/g, "");
+
+    if(this.value === ""){
+        document.getElementById("lnameError").innerText="Only alphabets allowed";
+    }else{
+        document.getElementById("lnameError").innerText="";
+    }
+
+});
+
+
+/* PHONE VALIDATION */
+
+phone.addEventListener("input", function(){
+
+    this.value = this.value.replace(/[^0-9]/g,"");
+
+    if(this.value.length > 10){
+        this.value = this.value.slice(0,10);
+        document.getElementById("phoneError").innerText="Only 10 digits allowed";
+    }else{
+        document.getElementById("phoneError").innerText="";
+    }
+
+});
+
+
+/* EMAIL VALIDATION */
+
+email.addEventListener("input", function(){
+
+    let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!regex.test(this.value)){
+        document.getElementById("emailError").innerText="Invalid email format";
+    }else{
+        document.getElementById("emailError").innerText="";
+    }
+
+});
+
+
+/* FORM SUBMIT */
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let valid = true;
+
+
+/* EMPTY CHECK */
+
+if(fname.value === ""){
+document.getElementById("fnameError").innerText="Please fill the form";
+valid=false;
+}
+
+if(lname.value === ""){
+document.getElementById("lnameError").innerText="Please fill the form";
+valid=false;
+}
+
+if(email.value === ""){
+document.getElementById("emailError").innerText="Please fill the form";
+valid=false;
+}
+
+if(phone.value.length !== 10){
+document.getElementById("phoneError").innerText="Phone must be 10 digits";
+valid=false;
+}
+
+if(message.value === ""){
+document.getElementById("messageError").innerText="Please fill the form";
+valid=false;
+}
+
+
+/* SUCCESS */
+
+if(valid){
+window.location.href="404.html";
+}
+
+});
+</script>
+
+
+
+<section class="support-section">
+
+<div class="support-header reveal">
+
+<p class="support-small">Get in touch</p>
+
+<h2>Your trusted partner supporting<br>you in every conversation</h2>
+
+</div>
+
+
+<div class="support-grid">
+
+<!-- ITEM 1 -->
+
+<div class="support-item reveal">
+
+<h3>Quick Response</h3>
+
+<p>
+We reply promptly to ensure your questions are
+addressed without delay.
+</p>
+
+</div>
+
+
+<!-- ITEM 2 -->
+
+<div class="support-item reveal">
+
+<h3>Expert Guidance</h3>
+
+<p>
+Our team provides clear, professional advice
+tailored to your needs.
+</p>
+
+</div>
+
+
+<!-- ITEM 3 -->
+
+<div class="support-item reveal">
+
+<h3>Global Reach</h3>
+
+<p>
+We work with clients worldwide, overcoming
+distance and time zones.
+</p>
+
+</div>
+
+
+<!-- ITEM 4 -->
+
+<div class="support-item reveal">
+
+<h3>Individualized Care</h3>
+
+<p>
+Every inquiry is handled with individual
+attention and care.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealSupport(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealSupport);
+</script>
+
+
+
+<section class="map-section">
+
+<h2>Our Location</h2>
+
+<div class="map-container">
+
+<iframe 
+src="https://maps.google.com/maps?q=ayyappa%20society%20madhapur%20hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed"
+frameborder="0"
+scrolling="no"
+marginheight="0"
+marginwidth="0">
+</iframe>
+
+</div>
+
+</section>
+
+
+
+<footer class="footer scroll-footer">
+
+<div class="footer-container">
+
+<!-- LEFT SECTION -->
+
+<div class="footer-left">
+
+
+<a href="index.html">
+<img src="images/loo.webp" class="footer-logo" alt="logo">
+</a>
+
+
+<p>
+Stackly is a technical services company helping pharma
+and chemical plants evolve.
+</p>
+
+</div>
+
+
+<!-- MIDDLE LINKS -->
+
+<div class="footer-links">
+
+<div class="footer-col">
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Stackly</a>
+<a href="services.html">Services</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<a href="404.html">Pricing</a>
+<a href="404.html">Case Studies</a>
+<a href="404.html">Industries</a>
+
+</div>
+
+<div class="footer-social">
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- RIGHT CONTACT -->
+
+<div class="footer-contact">
+
+<h3>stackly@example.com</h3>
+
+<h2>+(800) 395 340 340</h2>
+
+</div>
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+<p>© Stackly. All Rights Reserved.</p>
+
+<p>Designed by Stackly</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+    
+
+const footer = document.querySelector(".scroll-footer");
+
+function revealFooter(){
+
+const elementTop = footer.getBoundingClientRect().top;
+const screenHeight = window.innerHeight;
+
+if(elementTop < screenHeight - 100){
+
+footer.classList.add("show");
+
+}
+
+}
+
+window.addEventListener("scroll", revealFooter);
+revealFooter();
+
+</script>
+<script src="main.js"></script>
+
+<!-- Scroll To Top Button -->
+<button id="scrollTopBtn">
+↑
+</button>
+
+<script>
+
+    
+
+let scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+
+if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+scrollBtn.style.display = "flex";
+} else {
+scrollBtn.style.display = "none";
+}
+
+};
+
+scrollBtn.onclick = function() {
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+};
+
+
+    </script>
+
+</body>
+</html>

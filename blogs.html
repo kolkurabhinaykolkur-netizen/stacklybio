@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly Biotechnology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+<div class="nav-container">
+
+<div class="logo">
+<a href="index.html">
+<img src="images/loo.webp" alt="logo">
+</a>
+</div>
+
+</div>
+
+
+<nav class="nav-links" id="navLinks">
+
+<div class="mobile-top">
+
+<img src="images/loo.webp" class="mobile-logo">
+
+<span class="close-menu" id="closeMenu">✕</span>
+
+</div>
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
+<a href="services.html">Services</a>
+<a href="blogs.html">Blogs</a>
+<a href="contact.html">Contact</a>
+
+
+<a href="login.html" class="mobile-login">
+<button class="mobile-btn">Login</button>
+</a>
+
+</nav>
+
+
+<button class="login-btn">Login</button>
+
+<div class="hamburger" id="hamburger">☰</div>
+
+</div>
+
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="industries-hero">
+
+<div class="industries-container">
+
+<div class="industries-text reveal">
+
+<p class="industries-small"> Blogs Industries</p>
+
+<h1>
+Delivering cutting-edge solutions tailored to the unique
+needs of each industry we serve
+</h1>
+
+</div>
+
+<div class="industries-button reveal">
+
+<a href="404.html">
+  <button>Explore our industries</button>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="industries-image reveal">
+
+<img src="images/tube.webp" alt="industry image">
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealIndustries(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealIndustries);
+</script>
+
+
+
+
+
+
+
+
+
+<section class="industry-section">
+
+<div class="industry-container">
+
+<!-- LEFT TEXT -->
+
+<div class="industry-left">
+<p>
+Our engineering solutions are
+tailored to meet the needs of
+multiple industries.
+</p>
+</div>
+
+
+<!-- CENTER LIST -->
+
+<div class="industry-list">
+
+<div class="industry-item active" data-img="img1">
+
+<span class="industry-name">Nutraceuticals</span>
+<span class="arrow">↗</span>
+
+</div>
+
+
+<div class="industry-item" data-img="img2">
+
+<span class="industry-name">Industrial Chemicals</span>
+<span class="arrow">↗</span>
+
+</div>
+
+
+<div class="industry-item" data-img="img3">
+
+<span class="industry-name">Agrochemicals</span>
+<span class="arrow">↗</span>
+
+</div>
+
+
+<div class="industry-item" data-img="img4">
+
+<span class="industry-name">Cosmetics Care</span>
+<span class="arrow">↗</span>
+
+</div>
+
+
+<div class="industry-item" data-img="img5">
+
+<span class="industry-name">Biotechnology</span>
+<span class="arrow">↗</span>
+
+</div>
+
+
+<div class="industry-item" data-img="img6">
+
+<span class="industry-name">Pharmaceuticals</span>
+<span class="arrow">↗</span>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT IMAGE -->
+
+<div class="industry-image">
+
+<img src="images/b1 (1).webp" id="img1" class="active">
+<img src="images/b1 (2).webp" id="img2">
+<img src="images/b1 (3).webp" id="img3">
+<img src="images/b1 (4).webp" id="img4">
+<img src="images/b1 (5).webp" id="img5">
+<img src="images/b1 (6).webp" id="img6">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="deliver-section">
+
+<div class="deliver-container">
+
+<!-- LEFT SIDE -->
+
+<div class="deliver-left reveal">
+
+<p class="deliver-small">What we deliver</p>
+
+<h2>
+Specialized expertise tailored to the complex
+needs of pharmaceutical and chemical environments
+</h2>
+
+<p class="deliver-desc">
+We deliver tailored systems that meet the highest standards of
+pharmaceutical and chemical environments — from cleanrooms
+to utilities, built for lasting performance.
+</p>
+
+<img src="images/oooo.webp" alt="lab image" class="deliver-img">
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="deliver-right reveal">
+
+<div class="deliver-keywords">
+
+<span>HVAC</span>
+<span>Utilities</span>
+<span>Process</span>
+<span>Validation</span>
+<span>Compliance</span>
+<span class="active">Cleanrooms</span>
+
+</div>
+
+<p class="deliver-note">
+Stackly  brings meticulous attention and strict
+governance to every system and component.
+</p>
+
+<hr>
+<button class="deliver-btn" onclick="window.location.href='404.html'">
+  Speak with an expert
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealDeliver(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealDeliver);
+</script>
+
+
+
+
+
+
+
+
+
+<section class="blog-section">
+
+<div class="blog-container">
+
+<!-- CARD 1 -->
+<div class="blog-card reveal">
+
+<img src="images/blog (1).webp" alt="">
+
+<h3>
+How autophagy models in mice could
+lead to treatment in humans.
+</h3>
+
+<p class="blog-date">June 5, 2023</p>
+
+</div>
+
+
+<!-- CARD 2 -->
+<div class="blog-card reveal">
+
+<img src="images/blog (2).webp" alt="">
+
+<h3>
+Why scientific research is the most
+important for the human race.
+</h3>
+
+<p class="blog-date">June 5, 2023</p>
+
+</div>
+
+
+<!-- CARD 3 -->
+<div class="blog-card reveal">
+
+<img src="images/blog (3).webp" alt="">
+
+<h3>
+A different system to learn laboratory
+science for future development.
+</h3>
+
+<p class="blog-date">June 5, 2023</p>
+
+</div>
+
+
+<!-- CARD 4 -->
+<div class="blog-card reveal">
+
+<img src="images/blog (4).webp" alt="">
+
+<h3>
+In the pursuit of quality a laboratory
+perspective
+</h3>
+
+<p class="blog-date">June 15, 2023</p>
+
+</div>
+
+
+<!-- CARD 5 -->
+<div class="blog-card reveal">
+
+<img src="images/blog (5).webp" alt="">
+
+<h3>
+Advancements and innovations in
+science and technology
+</h3>
+
+<p class="blog-date">June 15, 2023</p>
+
+</div>
+
+
+<!-- CARD 6 -->
+<div class="blog-card reveal">
+
+<img src="images/blog (6).webp" alt="">
+
+<h3>
+Do you want to fast track your lab
+operations
+</h3>
+
+<p class="blog-date">June 15, 2023</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealBlog(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealBlog);
+</script>
+
+
+
+
+
+
+
+
+
+<section class="bio-services-section">
+
+<div class="bio-services-container">
+
+<div class="bio-services-header">
+
+<div class="bio-services-title">
+<h5>Our services</h5>
+
+<h2>
+Professional services for chemical &
+pharmaceutical plants — innovation
+and reliability in every project.
+</h2>
+</div>
+
+
+<button class="bio-services-btn" onclick="window.location.href='404.html'">
+View all services
+</button>
+
+
+</div>
+
+
+<div class="bio-services-grid">
+
+<div class="bio-service-card bio-scroll-left">
+<h3>Process System Design</h3>
+<p>We plan efficient layouts tailored chemical process.</p>
+</div>
+
+<div class="bio-service-card bio-scroll-left">
+<h3>Equipment Integration</h3>
+<p>Meticulous system installation and integration.</p>
+</div>
+
+<div class="bio-service-card bio-scroll-left">
+<h3>Automation & Controls</h3>
+<p>Smart control systems for efficient operations.</p>
+</div>
+
+<div class="bio-service-card bio-scroll-left">
+<h3>Utility System Engineering</h3>
+<p>Developing advanced utility systems to fulfill criteria.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- HOW WE WORK -->
+
+<section class="work-section">
+
+<div class="wave"></div>
+<div class="wave wave2"></div>
+
+<div class="work-card-wrapper">
+
+<div class="layer layer1"></div>
+<div class="layer layer2"></div>
+<div class="layer layer3"></div>
+
+<div class="work-card">
+
+<h5>How we work</h5>
+
+<h2>Meticulous attention to every detail</h2>
+
+<p>
+Whether it's streamlining critical utilities
+or optimizing process environments,
+we approach every project with precision
+and reliability at its core.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+<footer class="footer scroll-footer">
+
+<div class="footer-container">
+
+<!-- LEFT SECTION -->
+
+<div class="footer-left">
+
+
+<a href="index.html">
+<img src="images/loo.webp" class="footer-logo" alt="logo">
+</a>
+
+
+<p>
+Stackly is a technical services company helping pharma
+and chemical plants evolve.
+</p>
+
+</div>
+
+
+<!-- MIDDLE LINKS -->
+
+<div class="footer-links">
+
+<div class="footer-col">
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Stackly</a>
+<a href="services.html">Services</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<a href="404.html">Pricing</a>
+<a href="404.html">Case Studies</a>
+<a href="404.html">Industries</a>
+
+</div>
+
+<div class="footer-social">
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- RIGHT CONTACT -->
+
+<div class="footer-contact">
+
+<h3>stackly@example.com</h3>
+
+<h2>+(800) 395 340 340</h2>
+
+</div>
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+<p>© Stackly. All Rights Reserved.</p>
+
+<p>Designed by Stackly</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+    
+
+const footer = document.querySelector(".scroll-footer");
+
+function revealFooter(){
+
+const elementTop = footer.getBoundingClientRect().top;
+const screenHeight = window.innerHeight;
+
+if(elementTop < screenHeight - 100){
+
+footer.classList.add("show");
+
+}
+
+}
+
+window.addEventListener("scroll", revealFooter);
+revealFooter();
+
+</script>
+<script src="main.js"></script>
+
+<!-- Scroll To Top Button -->
+<button id="scrollTopBtn">
+↑
+</button>
+
+<script>
+
+    
+
+let scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+
+if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+scrollBtn.style.display = "flex";
+} else {
+scrollBtn.style.display = "none";
+}
+
+};
+
+scrollBtn.onclick = function() {
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+};
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly Biotechnology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+<div class="nav-container">
+
+<div class="logo">
+<a href="index.html">
+<img src="images/loo.webp" alt="logo">
+</a>
+</div>
+
+
+
+<nav class="nav-links" id="navLinks">
+
+<div class="mobile-top">
+
+<img src="images/loo.webp" class="mobile-logo">
+
+<span class="close-menu" id="closeMenu">✕</span>
+
+</div>
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
+<a href="services.html">Services</a>
+<a href="blogs.html">Blogs</a>
+<a href="contact.html">Contact</a>
+
+
+<a href="login.html" class="mobile-login">
+<button class="mobile-btn">Login</button>
+</a>
+
+</nav>
+
+
+<button class="login-btn">Login</button>
+
+<div class="hamburger" id="hamburger">☰</div>
+
+</div>
+
+</header>
+
+
+
+
+
+
+<section class="services-hero">
+
+<div class="services-container">
+
+<div class="services-text reveal">
+
+<p class="services-small">Services</p>
+
+<h1>
+Professional services —
+innovation and reliability
+in every project.
+</h1>
+
+<button class="services-btn" onclick="window.location.href='404.html'">
+  Get in touch
+</button>
+
+
+
+<div class="scroll-image-container">
+
+<img src="images/brain.webp" id="scrollRotateImage" alt="scroll image">
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+<div class="services-image reveal">
+
+<img src="images/s1 (1).webp" alt="services image">
+
+</div>
+
+
+
+</div>
+
+</section>
+
+<script>
+
+    function revealHero(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealHero);
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+<section class="services-section">
+
+<h2 class="services-title">What We Provide</h2>
+
+<div class="services-grid">
+
+<!-- CARD 1 -->
+<div class="service-card reveal">
+
+<img src="images/s1 (2).webp" alt="">
+
+<div class="service-content">
+<h3>Process System Design</h3>
+<p>We plan efficient layouts tailored chemical process.</p>
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+<div class="service-card reveal">
+
+<img src="images/s1 (3).webp" alt="">
+
+<div class="service-content">
+<h3>Equipment Integration</h3>
+<p>Meticulous system installation and integration.</p>
+</div>
+
+</div>
+
+<!-- CARD 3 -->
+<div class="service-card reveal">
+
+<img src="images/s1 (4).webp" alt="">
+
+<div class="service-content">
+<h3>Automation & Controls</h3>
+<p>Smart control systems for efficient operations.</p>
+</div>
+
+</div>
+
+<!-- CARD 4 -->
+<div class="service-card reveal">
+
+<img src="images/s1 (5).webp" alt="">
+
+<div class="service-content">
+<h3>Utility System Engineering</h3>
+<p>Developing advanced utility systems to fulfill criteria.</p>
+</div>
+
+</div>
+
+<!-- CARD 5 -->
+<div class="service-card reveal">
+
+<img src="images/s1 (6).webp" alt="">
+
+<div class="service-content">
+<h3>Validation & Compliance</h3>
+<p>Support with testing and regulatory alignment.</p>
+</div>
+
+</div>
+
+<!-- CARD 6 -->
+<div class="service-card reveal">
+
+<img src="images/j.webp" alt="">
+
+<div class="service-content">
+<h3>Project Management</h3>
+<p>Team work with suppliers to streamline delivery.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+    function revealServices(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealServices);
+</script>
+
+
+
+
+
+
+
+
+
+<section class="commitment-section">
+
+<h2 class="commitment-title">Our commitment to innovation</h2>
+
+<div class="commitment-container">
+
+<!-- LEFT CONTENT -->
+
+<div class="commitment-left reveal">
+
+<p class="commitment-text">
+Our biotechnology experts work across research, diagnostics,
+and pharmaceutical development to deliver advanced solutions
+that improve healthcare and scientific discovery.
+</p>
+
+<a href="404.html">
+  <button class="commitment-btn">Explore our services</button>
+</a>
+
+</div>
+
+
+<!-- MIDDLE IMAGE -->
+
+<div class="commitment-image reveal">
+
+<img src="images/kaju.webp" alt="biotech image">
+
+</div>
+
+
+<!-- RIGHT CONTENT -->
+
+<div class="commitment-right reveal">
+
+<div class="commitment-item">
+<h3>Advanced biotechnology research</h3>
+<p>Driving innovation through modern lab technologies and scientific expertise.</p>
+</div>
+
+<div class="commitment-item">
+<h3>Precision laboratory analysis</h3>
+<p>Delivering accurate diagnostics and reliable research results.</p>
+</div>
+
+<div class="commitment-item">
+<h3>Biotech product development</h3>
+<p>Supporting pharmaceutical and chemical manufacturing innovation.</p>
+</div>
+
+<div class="commitment-item">
+<h3>Reliable scientific support</h3>
+<p>Ensuring consistent quality and regulatory compliance in every process.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealCommitment(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealCommitment);
+</script>
+
+
+
+<!-- HOW WE WORK -->
+
+<section class="work-section">
+
+<div class="wave"></div>
+<div class="wave wave2"></div>
+
+<div class="work-card-wrapper">
+
+<div class="layer layer1"></div>
+<div class="layer layer2"></div>
+<div class="layer layer3"></div>
+
+<div class="work-card">
+
+<h5>How we work</h5>
+
+<h2>Meticulous attention to every detail</h2>
+
+<p>
+Whether it's streamlining critical utilities
+or optimizing process environments,
+we approach every project with precision
+and reliability at its core.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="testimonial-section">
+
+<div class="testimonial-container">
+
+<!-- LEFT SIDE -->
+
+<div class="testimonial-left reveal">
+
+<h2 class="testimonial-title">
+Trust is built, case by case.
+</h2>
+
+<div class="client-list">
+
+<div class="client active">
+<h3>Justin</h3>
+<p>CEO of Atlantiz</p>
+</div>
+
+<hr>
+
+<div class="client">
+<h3>Daniel</h3>
+<p>Founder at ConsultGroup</p>
+</div>
+
+<hr>
+
+<div class="client">
+<h3>Veronica</h3>
+<p>Sales Manager</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MIDDLE CARD -->
+
+<div class="testimonial-card reveal">
+
+<p class="quote">
+“Working with Stackly was a seamless experience. They handled every
+phase — from design to validation — with precision and professionalism.
+We saw measurable improvements in efficiency and quality.”
+</p>
+
+</div>
+
+
+<!-- RIGHT IMAGE -->
+
+<div class="testimonial-image reveal">
+
+<img src="images/s1 (7).webp" alt="client image">
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealTestimonial(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealTestimonial);
+</script>
+
+
+
+
+<section class="gallery-section">
+
+<div class="gallery-container">
+
+<div class="gallery-text reveal">
+
+<p class="gallery-small">Gallery</p>
+
+<h2>
+Explore our extensive portfolio showcasing the precision
+and quality of our contract manufacturing services
+</h2>
+
+</div>
+
+
+<div class="gallery-grid">
+
+<div class="gallery-card reveal">
+<img src="images/s1 (8).webp" alt="">
+</div>
+
+<div class="gallery-card reveal">
+<img src="images/s1 (9).webp" alt="">
+</div>
+
+<div class="gallery-card reveal">
+<img src="images/s1 (10).webp" alt="">
+</div>
+
+<div class="gallery-card reveal">
+<img src="images/s1 (11).webp" alt="">
+</div>
+
+</div>
+
+
+<div class="gallery-button reveal">
+<button onclick="window.location.href='404.html'">View gallery</button>
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+    function revealGallery(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealGallery);
+</script>
+
+
+
+<section class="pricing-section">
+
+<div class="pricing-header reveal">
+
+<p class="pricing-small">Pricing</p>
+
+<h2>
+Select the plan that best suits your
+requirements and budget
+</h2>
+
+</div>
+
+
+<div class="pricing-container">
+
+<!-- PLAN 1 -->
+
+<div class="pricing-row reveal">
+
+<div class="pricing-left">
+
+<h3>Starter Plan</h3>
+
+<p class="pricing-desc">
+Ideal for companies starting a new project, offering
+expert guidance for a solid start.
+</p>
+
+<ul>
+<li>Initial project assessment to identify risks</li>
+<li>Basic compliance review (GMP & ISO)</li>
+<li>Engineering consultation session</li>
+<li>Email support for follow-up questions</li>
+</ul>
+
+</div>
+
+
+<div class="pricing-right">
+
+<h4>$550 <span>/month</span></h4>
+
+<button onclick="window.location.href='404.html'">
+  Choose starter plan
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PLAN 2 -->
+
+<div class="pricing-row reveal">
+
+<div class="pricing-left">
+
+<h3>Professional Plan</h3>
+
+<p class="pricing-desc">
+Designed for businesses ready to move beyond
+planning and into execution.
+</p>
+
+<ul>
+<li>Comprehensive project planning and design</li>
+<li>Detailed compliance documentation</li>
+<li>On-site inspection and verification</li>
+<li>Engineering consultation sessions</li>
+<li>Priority email and phone support</li>
+</ul>
+
+</div>
+
+
+<div class="pricing-right">
+
+<h4>$2000 <span>/month</span></h4>
+
+<button onclick="window.location.href='404.html'">
+  Choose Profestional  plan
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PLAN 3 -->
+
+<div class="pricing-row reveal">
+
+<div class="pricing-left">
+
+<h3>Enterprise Plan</h3>
+
+<p class="pricing-desc">
+Our most extensive package for managing critical
+processes and complex regulations.
+</p>
+
+<ul>
+<li>Full system design and implementation</li>
+<li>Complete regulatory compliance management</li>
+<li>On-site supervision and installation</li>
+<li>Unlimited consultation sessions</li>
+<li>Dedicated project manager support</li>
+</ul>
+
+</div>
+
+
+<div class="pricing-right">
+
+<h4>$3500 <span>/month</span></h4>
+
+<button onclick="window.location.href='404.html'">
+  Choose expertise plan
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealPricing(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealPricing);
+</script>
+
+
+
+
+
+
+<footer class="footer scroll-footer">
+
+<div class="footer-container">
+
+<!-- LEFT SECTION -->
+
+<div class="footer-left">
+
+
+<a href="index.html">
+<img src="images/loo.webp" class="footer-logo" alt="logo">
+</a>
+
+
+<p>
+Stackly is a technical services company helping pharma
+and chemical plants evolve.
+</p>
+
+</div>
+
+
+<!-- MIDDLE LINKS -->
+
+<div class="footer-links">
+
+<div class="footer-col">
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Stackly</a>
+<a href="services.html">Services</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<a href="404.html">Pricing</a>
+<a href="404.html">Case Studies</a>
+<a href="404.html">Industries</a>
+
+</div>
+
+<div class="footer-social">
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- RIGHT CONTACT -->
+
+<div class="footer-contact">
+
+<h3>stackly@example.com</h3>
+
+<h2>+(800) 395 340 340</h2>
+
+</div>
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+<p>© Stackly. All Rights Reserved.</p>
+
+<p>Designed by Stackly</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+    
+
+const footer = document.querySelector(".scroll-footer");
+
+function revealFooter(){
+
+const elementTop = footer.getBoundingClientRect().top;
+const screenHeight = window.innerHeight;
+
+if(elementTop < screenHeight - 100){
+
+footer.classList.add("show");
+
+}
+
+}
+
+window.addEventListener("scroll", revealFooter);
+revealFooter();
+
+</script>
+<script src="main.js"></script>
+
+<!-- Scroll To Top Button -->
+<button id="scrollTopBtn">
+↑
+</button>
+
+<script>
+
+    
+
+let scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+
+if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+scrollBtn.style.display = "flex";
+} else {
+scrollBtn.style.display = "none";
+}
+
+};
+
+scrollBtn.onclick = function() {
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+};
+
+
+    </script>
+
+</body>
+</html>

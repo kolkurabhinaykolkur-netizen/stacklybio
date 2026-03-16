@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly Biotechnology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+<div class="nav-container">
+
+<div class="logo">
+<a href="index.html">
+<img src="images/loo.webp" alt="logo">
+</a>
+</div>
+
+
+<nav class="nav-links" id="navLinks">
+
+<div class="mobile-top">
+
+<img src="images/loo.webp" class="mobile-logo">
+
+<span class="close-menu" id="closeMenu">✕</span>
+
+</div>
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Us</a>
+<a href="services.html">Services</a>
+<a href="blogs.html">Blogs</a>
+<a href="contact.html">Contact</a>
+
+<a href="login.html" class="mobile-login">
+<button class="mobile-btn">Login</button>
+</a>
+
+</nav>
+
+
+
+<button class="login-btn">Login</button>
+
+<div class="hamburger" id="hamburger">☰</div>
+
+</div>
+
+</header>
+
+
+
+
+
+
+
+
+<section class="about-hero">
+
+<div class="about-container">
+
+<div class="about-left">
+
+<p class="about-small">About us – Stackly</p>
+
+<h1>
+Innovative solutions, rigorous
+quality control, and custom
+manufacturing.
+</h1>
+
+</div>
+
+<div class="about-right">
+<button class="about-btn" onclick="window.location.href='404.html'">
+Our approach
+</button>
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<h2 class="counter" data-target="500">0</h2>
+<p>Realized Solutions</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="98">0</h2>
+<p>Client Satisfaction</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="15">0</h2>
+<p>Years of Experience</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="10">0</h2>
+<p>Work Industries</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="60">0</h2>
+<p>Biotech Labs</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="200">0</h2>
+<p>Skilled Experts</p>
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    
+
+const counters = document.querySelectorAll(".counter");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+const counter = entry.target;
+const target = +counter.getAttribute("data-target");
+
+let count = 0;
+
+const updateCounter = () => {
+
+const increment = target / 120;
+
+if(count < target){
+
+count += increment;
+
+counter.innerText = Math.ceil(count);
+
+setTimeout(updateCounter,20);
+
+}else{
+
+counter.innerText = target + "+";
+
+}
+
+};
+
+updateCounter();
+
+observer.unobserve(counter);
+
+}
+
+});
+
+},{threshold:0.5});
+
+counters.forEach(counter=>{
+observer.observe(counter);
+});
+
+
+</script>
+
+
+
+<section class="hero-image-section">
+
+<img src="images/dark.webp" alt="Biotechnology Microscope" class="hero-img">
+
+</section>
+
+
+<section class="approach">
+
+<div class="approach-title">
+<h5>Our approach</h5>
+<h2>At Stackly, we combine innovation with rigorous quality control at every stage.</h2>
+<p>
+We leverage our expertise in pharmaceutical processes, adhere to GMP standards,
+and work closely with clients for precise project execution.
+</p>
+</div>
+
+<div class="approach-grid">
+
+<div class="card reveal">
+<h3>Client-Centric Planning</h3>
+<p>We start with a comprehensive understanding of the client's needs to ensure customized solutions.</p>
+</div>
+
+<div class="card reveal">
+<h3>Compliance Priority</h3>
+<p>Each project aligns with GMP, FDA, and ISO standards ensuring regulatory compliance.</p>
+</div>
+
+<div class="card reveal">
+<h3>Collaborative Expertise</h3>
+<p>Our collaboration with engineers and specialists guarantees outstanding results.</p>
+</div>
+
+<div class="card reveal">
+<h3>Innovative Engineering</h3>
+<p>Our systems exceed industry standards for efficiency and reliability.</p>
+</div>
+
+<div class="card reveal">
+<h3>Clear Communication</h3>
+<p>Clients stay updated and engaged throughout the entire project lifecycle.</p>
+</div>
+
+<div class="card reveal">
+<h3>Sustainable Performance</h3>
+<p>We build systems that deliver long-lasting performance with minimal maintenance.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealCards(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i = 0; i < reveals.length; i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealCards);
+</script>
+
+
+
+
+
+
+
+
+
+
+<section class="why-section">
+
+<div class="why-container">
+
+<div class="why-image reveal">
+<img src="images/c.webp" alt="biotech image">
+</div>
+
+<div class="why-content">
+
+<h5>Why Choose Us</h5>
+
+<h2>
+Stackly combines deep expertise,
+advanced technologies, and an
+unwavering commitment to quality.
+</h2>
+
+<p>
+We understand the complexity of pharmaceutical and chemical
+manufacturing and offer our clients:
+</p>
+
+<hr>
+
+<ul class="why-list">
+
+<li>Tailored solutions to fit your needs.</li>
+<li>Strict GMP quality control.</li>
+<li>Flexibility with complex projects.</li>
+<li>Trustworthy and transparent partnership.</li>
+
+</ul>
+<button class="discover-btn" onclick="window.location.href='404.html'">
+Discover Our Solutions
+</button>
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealOnScroll(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i = 0; i < reveals.length; i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+</script>
+
+
+
+
+
+
+<section class="bio-services-section">
+
+<div class="bio-services-container">
+
+<div class="bio-services-header">
+
+<div class="bio-services-title">
+<h5>Our services</h5>
+
+<h2>
+Professional services for chemical &
+pharmaceutical plants — innovation
+and reliability in every project.
+</h2>
+</div>
+
+<button class="bio-services-btn" onclick="window.location.href='404.html'">
+View all services
+</button>
+
+
+</div>
+
+
+<div class="bio-services-grid">
+
+<div class="bio-service-card bio-scroll-left">
+<h3>Process System Design</h3>
+<p>We plan efficient layouts tailored chemical process.</p>
+</div>
+
+<div class="bio-service-card bio-scroll-left">
+<h3>Equipment Integration</h3>
+<p>Meticulous system installation and integration.</p>
+</div>
+
+<div class="bio-service-card bio-scroll-left">
+<h3>Automation & Controls</h3>
+<p>Smart control systems for efficient operations.</p>
+</div>
+
+<div class="bio-service-card bio-scroll-left">
+<h3>Utility System Engineering</h3>
+<p>Developing advanced utility systems to fulfill criteria.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+
+<section class="lab-section">
+
+<div class="lab-container">
+
+<div class="lab-content reveal">
+
+<h5>About Stackly</h5>
+
+<h1>
+A hub for discovery
+and exploration
+</h1>
+
+<p>
+The system expounds the actual teachings of the great explorer
+of the truth, the master builder of human happiness.
+</p>
+
+<hr>
+
+<div class="lab-features">
+
+<div class="feature">
+<h3>Highly advanced laboratory</h3>
+<p>Foresee the pain and trouble that are bound to ensue.</p>
+</div>
+
+<div class="feature">
+<h3>Comprehensive test menu</h3>
+<p>Ask a quick six seven offer see among. Handsome met debating.</p>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="lab-image reveal">
+
+<img src="images/k.webp" alt="lab">
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+    function revealContent(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealContent);
+</script>
+
+
+
+<section class="method-section">
+
+<div class="method-title">
+
+<h2>
+Our method promises every client superior service, effective communication,
+and results that consistently exceed their expectations.
+</h2>
+
+</div>
+
+
+<div class="method-list">
+
+
+<!-- ITEM 1 -->
+
+<div class="method-item reveal">
+
+<div class="method-icon">
+<img src="images/oo (1).webp" alt="">
+</div>
+
+<div class="method-number">
+<h3>01.</h3>
+<h4>Assessing Your Needs</h4>
+</div>
+
+<div class="method-text">
+<p>
+We listening carefully to your goals, challenges, and vision.
+This helps us fully understand what you need and tailor our
+approach to fit your unique situation.
+</p>
+</div>
+
+</div>
+
+
+<!-- ITEM 2 -->
+
+<div class="method-item reveal">
+
+<div class="method-icon">
+<img src="images/oo (2).webp" alt="">
+</div>
+
+<div class="method-number">
+<h3>02.</h3>
+<h4>Planning & Strategy</h4>
+</div>
+
+<div class="method-text">
+<p>
+Once we know your priorities, we create a clear action plan.
+This includes setting timelines, assigning responsibilities,
+and ensuring every detail.
+</p>
+</div>
+
+</div>
+
+
+<!-- ITEM 3 -->
+
+<div class="method-item reveal">
+
+<div class="method-icon">
+<img src="images/oo (3).webp" alt="">
+</div>
+
+<div class="method-number">
+<h3>03.</h3>
+<h4>Execution with Precision</h4>
+</div>
+
+<div class="method-text">
+<p>
+Our team works efficiently and professionally to bring your
+plan to life. We focus on quality at every step.
+</p>
+</div>
+
+</div>
+
+
+<!-- ITEM 4 -->
+
+<div class="method-item reveal">
+
+<div class="method-icon">
+<img src="images/oo (4).webp" alt="">
+</div>
+
+<div class="method-number">
+<h3>04.</h3>
+<h4>Evaluation & Enhancement</h4>
+</div>
+
+<div class="method-text">
+<p>
+After delivering results, we review the outcomes together,
+gather feedback, and improve long-term success.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealMethod(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealMethod);
+</script>
+
+
+
+<section class="team-section">
+
+<div class="team-header">
+
+<div class="team-title">
+<p class="team-small">The People Behind Stackly</p>
+<h2>Experts you can rely on</h2>
+</div>
+
+<button class="team-btn" onclick="window.location.href='404.html'">
+Meet the team
+</button>
+
+</div>
+
+
+<div class="team-grid">
+
+<!-- TEAM MEMBER 1 -->
+
+<div class="team-card reveal">
+
+<img src="images/blog (7).webp" alt="">
+
+<h3>Michael Turner</h3>
+
+<p class="team-role">Head of Quality Assurance</p>
+
+</div>
+
+
+<!-- TEAM MEMBER 2 -->
+
+<div class="team-card reveal">
+
+<img src="images/t (2).webp" alt="">
+
+<h3>Jack Bennett</h3>
+
+<p class="team-role">Senior Process Engineer</p>
+
+</div>
+
+
+<!-- TEAM MEMBER 3 -->
+
+<div class="team-card reveal">
+
+<img src="images/t (3).webp" alt="">
+
+<h3>Daniel Harris</h3>
+
+<p class="team-role">Regulatory Affairs Specialist</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    function revealTeam(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll", revealTeam);
+</script>
+
+
+
+
+
+
+
+<section class="bio-testimonial-area">
+
+<div class="bio-testimonial-wrapper">
+
+<div class="bio-quote-mark">
+❝
+</div>
+
+<div class="bio-testimonial-body">
+
+<p class="bio-testimonial-message">
+
+<span class="bio-line">
+“Working with Stackly was a seamless experience.
+</span>
+
+<span class="bio-line">
+They handled every phase — from design to validation — with precision and professionalism.
+</span>
+
+<span class="bio-line">
+We saw measurable improvements in efficiency and quality.”
+</span>
+
+</p>
+
+<div class="bio-divider-line"></div>
+
+<div class="bio-client-info">
+
+<h3>Justin Cooper</h3>
+<p>CEO of Atlantiz</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="insights-section">
+
+<div class="insights-header">
+
+<div class="insights-title">
+
+<h5>News & Updates</h5>
+<h2>Industry Insights</h2>
+
+</div>
+
+
+<button class="explore-btn" onclick="window.location.href='404.html'">
+Explore all news
+</button>
+
+
+</div>
+
+
+<div class="insights-grid">
+
+<!-- CARD 1 -->
+
+<div class="insight-card insight-scroll">
+
+<p class="date">August 15, 2025</p>
+
+<h3>The Role of Documentation in Pharma Compliance</h3>
+
+<p class="desc">
+Why records, traceability, and version control are
+as critical as the process itself.
+</p>
+
+<button class="read-btn">Read more</button>
+
+</div>
+
+
+
+<!-- CARD 2 -->
+
+<div class="insight-card insight-scroll">
+
+<p class="date">August 15, 2025</p>
+
+<h3>Minimizing Risk in Regulated Manufacturing</h3>
+
+<p class="desc">
+Strategies for maintaining quality and compliance
+across every step of production.
+</p>
+
+<button class="read-btn">Read more</button>
+
+</div>
+
+
+
+<!-- CARD 3 -->
+
+<div class="insight-card insight-scroll">
+
+<p class="date">August 15, 2025</p>
+
+<h3>How to Choose the Right CDMO Partner</h3>
+
+<p class="desc">
+Top criteria to consider when selecting a contract
+manufacturer for high-stakes.
+</p>
+
+<button class="read-btn">Read more</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<footer class="footer scroll-footer">
+
+<div class="footer-container">
+
+<!-- LEFT SECTION -->
+
+<div class="footer-left">
+
+<a href="index.html">
+<img src="images/loo.webp" class="footer-logo" alt="logo">
+</a>
+
+
+<p>
+Stackly is a technical services company helping pharma
+and chemical plants evolve.
+</p>
+
+</div>
+
+
+<!-- MIDDLE LINKS -->
+
+<div class="footer-links">
+
+<div class="footer-col">
+
+<a href="index.html">Home</a>
+<a href="aboutus.html">About Stackly</a>
+<a href="services.html">Services</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<a href="404.html">Pricing</a>
+<a href="404.html">Case Studies</a>
+<a href="404.html">Industries</a>
+
+</div>
+
+<div class="footer-social">
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- RIGHT CONTACT -->
+
+<div class="footer-contact">
+
+<h3>stackly@example.com</h3>
+
+<h2>+(800) 395 340 340</h2>
+
+</div>
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+<p>© Stackly. All Rights Reserved.</p>
+
+<p>Designed by Stackly</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+    
+
+const footer = document.querySelector(".scroll-footer");
+
+function revealFooter(){
+
+const elementTop = footer.getBoundingClientRect().top;
+const screenHeight = window.innerHeight;
+
+if(elementTop < screenHeight - 100){
+
+footer.classList.add("show");
+
+}
+
+}
+
+window.addEventListener("scroll", revealFooter);
+revealFooter();
+
+</script>
+<script src="main.js"></script>
+
+<!-- Scroll To Top Button -->
+<button id="scrollTopBtn">
+↑
+</button>
+
+<script>
+
+    
+
+let scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+
+if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+scrollBtn.style.display = "flex";
+} else {
+scrollBtn.style.display = "none";
+}
+
+};
+
+scrollBtn.onclick = function() {
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+};
+
+
+    </script>
+
+</body>
+</html>
