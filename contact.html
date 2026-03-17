@@ -51,9 +51,9 @@
 
 
 
-
-<button class="login-btn">Login</button>
-
+<a href="login.html">
+  <button class="login-btn">Login</button>
+</a>
 <div class="hamburger" id="hamburger">☰</div>
 
 </div>
@@ -238,13 +238,14 @@ email.addEventListener("input", function(){
 
 
 /* FORM SUBMIT */
-
 form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
 let valid = true;
 
+/* EMAIL REGEX */
+let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /* EMPTY CHECK */
 
@@ -262,6 +263,10 @@ if(email.value === ""){
 document.getElementById("emailError").innerText="Please fill the form";
 valid=false;
 }
+else if(!regex.test(email.value)){
+document.getElementById("emailError").innerText="Invalid email format";
+valid=false;
+}
 
 if(phone.value.length !== 10){
 document.getElementById("phoneError").innerText="Phone must be 10 digits";
@@ -272,7 +277,6 @@ if(message.value === ""){
 document.getElementById("messageError").innerText="Please fill the form";
 valid=false;
 }
-
 
 /* SUCCESS */
 
